@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о политическом заключённом">
+    <title>Политический заключённый</title>
+
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="prisoner.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+
+    <main id="main-content" class="page">
+        <!-- Loading state shown until data is fetched -->
+        <div id="loading" class="status-message" aria-live="polite">
+            <p>Загрузка…</p>
+        </div>
+
+        <!-- Error state (hidden by default) -->
+        <div id="error" class="status-message status-message--error" hidden role="alert">
+            <h1 class="status-message__title">Не удалось загрузить страницу</h1>
+            <p id="error-text"></p>
+        </div>
+
+        <!-- Prisoner profile (populated by JavaScript) -->
+        <article id="prisoner" class="prisoner" hidden>
+            <header class="prisoner__header">
+                <h1 id="prisoner-name" class="prisoner__name"></h1>
+            </header>
+
+            <figure class="prisoner__photo-wrapper">
+                <img
+                    id="prisoner-photo"
+                    class="prisoner__photo"
+                    src=""
+                    alt=""
+                    width="600"
+                    height="600"
+                    decoding="async"
+                >
+            </figure>
+
+            <div class="prisoner__body">
+                <p id="prisoner-description" class="prisoner__description"></p>
+
+                <section id="prisoner-interests" class="prisoner__interests" hidden>
+                    <h2 class="prisoner__interests-title">О чем можно написать?</h2>
+                    <p id="prisoner-interests-text" class="prisoner__interests-text"></p>
+                </section>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
