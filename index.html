@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Узнайте о политических заключённых России и напишите им письма поддержки">
+    <title>Политические заключённые России</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" defer></script>
+    <script src="page.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти к содержанию</a>
+
+    <main id="main-content" class="page">
+        <div id="loading" class="status-message" aria-live="polite">
+            <p>Загрузка…</p>
+        </div>
+
+        <div id="error" class="status-message status-message--error" hidden role="alert">
+            <h1 class="status-message__title">Не удалось загрузить страницу</h1>
+            <p id="error-text"></p>
+        </div>
+
+        <div id="home" class="home" hidden>
+            <header class="home__header">
+                <h1 class="home__title">Политические заключённые России</h1>
+                <p class="home__intro">
+                    На этом сайте вы можете узнать о людях, которые находятся в
+                    заключении по политическим мотивам, и написать им письма
+                    поддержки. Выберите категорию, чтобы увидеть список
+                    заключённых.
+                </p>
+            </header>
+
+            <ul id="category-grid" class="card-grid card-grid--categories" role="list"></ul>
+        </div>
+    </main>
+</body>
+</html>
