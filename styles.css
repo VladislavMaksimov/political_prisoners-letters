@@ -379,7 +379,7 @@ img {
 }
 
 .home__title {
-    margin: 0 0 1rem;
+    margin: 0;
     font-size: clamp(1.625rem, 6vw, 2.25rem);
     font-weight: 700;
     line-height: 1.2;
@@ -387,14 +387,6 @@ img {
     color: var(--color-accent);
     hyphens: auto;
     overflow-wrap: break-word;
-}
-
-.home__intro {
-    margin: 0 auto;
-    max-width: 32rem;
-    font-size: clamp(1rem, 2.8vw, 1.0625rem);
-    line-height: 1.7;
-    color: var(--color-text);
 }
 
 /* Category cards on the homepage (text-only, larger tap targets) */
