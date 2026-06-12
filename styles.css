@@ -65,6 +65,21 @@ img {
     height: auto;
 }
 
+/* Headings: wrap whole words only, no hyphenation */
+h1,
+h2,
+.home__title,
+.category__title,
+.prisoner__name,
+.prisoner__interests-title,
+.card__name,
+.status-message__title {
+    hyphens: none;
+    -webkit-hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
 /* ==========================================================================
    Accessibility
    ========================================================================== */
@@ -213,8 +228,6 @@ img {
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--color-accent);
-    hyphens: auto;
-    overflow-wrap: break-word;
 }
 
 /* Photo */
@@ -306,8 +319,6 @@ img {
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--color-accent);
-    hyphens: auto;
-    overflow-wrap: break-word;
 }
 
 /* Card grid */
@@ -434,8 +445,6 @@ img {
     line-height: 1.2;
     letter-spacing: -0.02em;
     color: var(--color-accent);
-    hyphens: auto;
-    overflow-wrap: break-word;
 }
 
 /* Category cards on the homepage (text-only, larger tap targets) */
