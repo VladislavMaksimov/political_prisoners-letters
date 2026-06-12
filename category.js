@@ -9,6 +9,7 @@
     var categoryEl = document.getElementById("category");
     var categoryTitleEl = document.getElementById("category-title");
     var cardGridEl = document.getElementById("card-grid");
+    var breadcrumbEl = document.getElementById("breadcrumb");
 
     var status = PageUtils.createStatusController(
         document.getElementById("loading"),
@@ -47,6 +48,11 @@
         var prisoners = PrisonersApp.getPrisonersList(category);
 
         PageUtils.setDocumentMeta(categoryName, categoryName);
+
+        PageUtils.renderBreadcrumbs(breadcrumbEl, [
+            PageUtils.homeBreadcrumbItem(),
+            { label: categoryName || "Категория" }
+        ]);
 
         categoryTitleEl.textContent = categoryName || "Категория";
         cardGridEl.innerHTML = "";

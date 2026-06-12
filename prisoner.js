@@ -12,6 +12,7 @@
     var descriptionEl = document.getElementById("prisoner-description");
     var interestsSectionEl = document.getElementById("prisoner-interests");
     var interestsTextEl = document.getElementById("prisoner-interests-text");
+    var breadcrumbEl = document.getElementById("breadcrumb");
 
     var status = PageUtils.createStatusController(
         document.getElementById("loading"),
@@ -31,21 +32,23 @@
 
         PrisonersApp.loadPrisoners()
             .then(function (data) {
-                var prisoner = PrisonersApp.findPrisonerById(data, prisonerId);
+                var context = PrisonersApp.findPrisonerContext(data, prisonerId);
 
-                if (!prisoner) {
+                if (!context) {
                     status.showError("Заключённый не найден.");
                     return;
                 }
 
-                renderPrisoner(prisoner);
+                renderPrisoner(context);
             })
             .catch(function () {
                 status.showError(PageUtils.LOAD_ERROR);
             });
     }
 
-    function renderPrisoner(prisoner) {
+    function renderPrisoner(context) {
+        var prisoner = context.prisoner;
+        var categoryName = PrisonersApp.getCategoryName(context.category);
         var fullName = PrisonersApp.getField(prisoner, ["full_name", "name", "title"]);
         var photo = PrisonersApp.getField(prisoner, ["photo", "image", "photo_url"]);
         var description = PrisonersApp.getField(prisoner, ["description", "bio", "about"]);
@@ -54,6 +57,15 @@
         );
 
         PageUtils.setDocumentMeta(fullName, description);
+
+        PageUtils.renderBreadcrumbs(breadcrumbEl, [
+            PageUtils.homeBreadcrumbItem(),
+            {
+                label: categoryName || "Категория",
+                href: PrisonersApp.buildCategoryUrl(context.category, context.categoryIndex)
+            },
+            { label: fullName || "Без имени" }
+        ]);
 
         nameEl.textContent = fullName || "Без имени";
 

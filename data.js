@@ -7,6 +7,7 @@ var PrisonersApp = (function () {
     var DATA_URL = "prisoners.json";
 
     var PAGES = {
+        home: "index.html",
         category: "category.html",
         prisoner: "prisoner.html"
     };
@@ -121,6 +122,31 @@ var PrisonersApp = (function () {
         return null;
     }
 
+    /**
+     * Find a prisoner and the category it belongs to.
+     * Returns { category, categoryIndex, prisoner } or null.
+     */
+    function findPrisonerContext(data, prisonerId) {
+        var normalizedId = String(prisonerId);
+        var categories = getCategories(data);
+
+        for (var i = 0; i < categories.length; i++) {
+            var category = categories[i];
+            var list = getPrisonersList(category);
+            var prisoner = list.find(function (p) { return String(p.id) === normalizedId; });
+
+            if (prisoner) {
+                return {
+                    category: category,
+                    categoryIndex: i,
+                    prisoner: prisoner
+                };
+            }
+        }
+
+        return null;
+    }
+
     /** Normalize interests to a display string, or null if absent. */
     function formatInterests(interests) {
         if (interests == null) return null;
@@ -187,6 +213,7 @@ var PrisonersApp = (function () {
         buildPrisonerUrl: buildPrisonerUrl,
         findCategoryById: findCategoryById,
         findPrisonerById: findPrisonerById,
+        findPrisonerContext: findPrisonerContext,
         formatInterests: formatInterests,
         previewInterests: previewInterests,
         formatPrisonerCount: formatPrisonerCount
