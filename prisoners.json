@@ -1,5 +1,6 @@
 [
     {
+        "id": "political-prisoners",
         "category_name": "Политические заключённые",
         "prisoners": [
             {
@@ -33,6 +34,7 @@
         ]
     },
     {
+        "id": "antiwar-activists",
         "category_name": "Антивоенные активисты",
         "prisoners": [
             {
@@ -66,6 +68,7 @@
         ]
     },
     {
+        "id": "journalists-bloggers",
         "category_name": "Журналисты и блогеры",
         "prisoners": [
             {
@@ -99,6 +102,7 @@
         ]
     },
     {
+        "id": "human-rights-defenders",
         "category_name": "Защитники прав человека",
         "prisoners": [
             {
