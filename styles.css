@@ -242,6 +242,7 @@ h2,
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    object-position: top;
     background-color: var(--color-border);
 }
 
